@@ -25,7 +25,6 @@
 
 <link rel="icon" type="image/png" href="/tempfavicon.png">
 <link rel="apple-touch-icon" href="/tempfavicon.png">
-<link rel="preload" as="image" href="/hero-poster.webp" fetchpriority="high">
 
 <script type="application/ld+json">
 {
@@ -340,14 +339,29 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-.hero-poster {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background:
+    radial-gradient(ellipse 110% 80% at 18% 55%, rgba(122,92,30,0.38) 0%, transparent 52%),
+    radial-gradient(ellipse 70% 100% at 78% 25%, rgba(201,168,76,0.10) 0%, transparent 48%);
   z-index: 0;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(201,168,76,0.018) 40px,
+    rgba(201,168,76,0.018) 41px
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-video {
@@ -975,15 +989,6 @@ img { display: block; max-width: 100%; }
 
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
-    <img
-      src="/hero-poster.webp"
-      alt="New York City at night"
-      class="hero-poster"
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-      decoding="sync"
-    >
     <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -1193,22 +1198,12 @@ img { display: block; max-width: 100%; }
     burger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   });
 
-  /* Load hero video after poster LCP */
-  var poster = document.querySelector('.hero-poster');
+  var HERO_VIDEO_SRC = '';
   var vid = document.getElementById('hero-video');
-
-  function loadHeroVideo() {
-    vid.src = '/hero-background.mp4';
+  if (HERO_VIDEO_SRC) {
+    vid.src = HERO_VIDEO_SRC;
     vid.load();
-    vid.addEventListener('canplay', function () {
-      vid.classList.add('ready');
-    }, { once: true });
-  }
-
-  if (poster.complete) {
-    setTimeout(loadHeroVideo, 80);
-  } else {
-    poster.addEventListener('load', function () { setTimeout(loadHeroVideo, 80); });
+    vid.addEventListener('canplay', function () { vid.classList.add('ready'); }, { once: true });
   }
 
   /* Scroll reveal */
