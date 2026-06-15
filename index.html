@@ -23,6 +23,8 @@
 <meta name="twitter:description" content="New York's premier CPA firm for businesses, high earners, and wealth management clients. Tax strategy, outsourced accounting, payroll, and business tax services. Free consultation.">
 <meta name="twitter:image" content="https://rank1cpa.com/og-image.webp">
 
+<link rel="icon" type="image/png" href="/tempfavicon.png">
+<link rel="apple-touch-icon" href="/tempfavicon.png">
 <link rel="preload" as="image" href="/hero-poster.webp" fetchpriority="high">
 
 <script type="application/ld+json">
@@ -193,12 +195,14 @@ img { display: block; max-width: 100%; }
 .nav.nav-hidden { transform: translateY(-100%); }
 
 .nav-logo {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+}
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .nav-center {
@@ -799,13 +803,13 @@ img { display: block; max-width: 100%; }
   gap: clamp(32px, 5vw, 72px);
 }
 .footer-logo {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
   display: block;
   margin-bottom: 16px;
+}
+.footer-logo img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 .footer-tagline {
   font-size: 13px;
@@ -920,7 +924,9 @@ img { display: block; max-width: 100%; }
 <!-- NAV -->
 <header role="banner">
   <nav class="nav" id="site-nav" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="Rank 1 Accounting home">RANK1CPA</a>
+    <a href="/" class="nav-logo" aria-label="Rank 1 Accounting home">
+      <img src="/templogotransparen.png" alt="Rank 1 CPA" width="120" height="40">
+    </a>
 
     <ul class="nav-center" id="nav-links" role="list">
       <li><a href="/about">About</a></li>
@@ -1125,7 +1131,9 @@ img { display: block; max-width: 100%; }
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
     <div>
-      <a href="/" class="footer-logo">RANK1CPA</a>
+      <a href="/" class="footer-logo">
+        <img src="/templogotransparen.png" alt="Rank 1 CPA" width="140" height="48">
+      </a>
       <p class="footer-tagline">Tax strategy and accounting for businesses, high earners, and wealth management clients who demand more from their CPA.</p>
     </div>
     <nav aria-label="Services footer navigation">
