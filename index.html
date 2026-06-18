@@ -46,7 +46,8 @@
         {"@type": "City", "name": "Brooklyn"},
         {"@type": "City", "name": "Queens"},
         {"@type": "AdministrativeArea", "name": "The Hamptons"},
-        {"@type": "State", "name": "New York"}
+        {"@type": "State", "name": "New York"},
+        {"@type": "State", "name": "New Jersey"}
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -433,21 +434,21 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.35em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);
   margin-bottom: 32px;
 }
 .hero-kicker::before,
 .hero-kicker::after {
   content: '';
   display: block;
-  width: 28px;
+  width: 14px;
   height: 1px;
   background: var(--gold);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .hero-h1 {
@@ -472,24 +473,45 @@ img { display: block; max-width: 100%; }
   margin: 0 auto 52px;
 }
 
-.btn-primary {
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn-primary,
+.btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 48px;
+  gap: 12px;
+  padding: 16px 28px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+.btn-primary {
   background: var(--gold);
   color: var(--bg);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.15s;
 }
 .btn-primary:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
 }
-.btn-primary svg { flex-shrink: 0; }
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+}
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+.btn-primary svg, .btn-secondary svg { flex-shrink: 0; }
 
 .hero-scroll {
   position: absolute;
@@ -538,20 +560,20 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.32em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);
   margin-bottom: 24px;
 }
 .section-kicker::before {
   content: '';
   display: block;
-  width: 24px;
+  width: 12px;
   height: 1px;
   background: var(--gold);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .authority-h2 {
@@ -580,8 +602,9 @@ img { display: block; max-width: 100%; }
 }
 
 .stat-row {
-  padding: 32px 0 32px 40px;
+  padding: 32px 24px;
   border-bottom: 1px solid var(--border);
+  text-align: center;
 }
 .stat-row:first-child { padding-top: 0; }
 .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
@@ -597,11 +620,11 @@ img { display: block; max-width: 100%; }
 
 .stat-l {
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(232,228,220,0.75);
 }
 
 /* ---- CALCULATOR ---- */
@@ -630,7 +653,7 @@ img { display: block; max-width: 100%; }
 .calc-tagline {
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(232,228,220,0.5);
+  color: rgba(232,228,220,0.75);
 }
 
 .calc-box {
@@ -653,11 +676,11 @@ img { display: block; max-width: 100%; }
 
 .f-label {
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.25em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(232,228,220,0.8);
 }
 
 .f-input,
@@ -714,10 +737,11 @@ img { display: block; max-width: 100%; }
 
 .result-label {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(232,228,220,0.8);
   margin-bottom: 14px;
 }
 .result-figure {
@@ -731,7 +755,7 @@ img { display: block; max-width: 100%; }
 .result-note {
   font-size: 13px;
   line-height: 1.65;
-  color: rgba(232,228,220,0.4);
+  color: rgba(232,228,220,0.7);
   max-width: 480px;
   margin: 0 auto;
 }
@@ -757,7 +781,7 @@ img { display: block; max-width: 100%; }
 }
 .capture-sub {
   font-size: 13px;
-  color: rgba(232,228,220,0.45);
+  color: rgba(232,228,220,0.7);
   text-align: center;
   margin-bottom: 24px;
 }
@@ -795,46 +819,6 @@ img { display: block; max-width: 100%; }
   margin-top: 14px;
 }
 
-/* ---- AREAS ---- */
-.areas {
-  padding: 40px clamp(20px, 5vw, 80px);
-  border-top: 1px solid rgba(201,168,76,0.06);
-}
-.areas-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.areas-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  white-space: nowrap;
-}
-.areas-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-}
-.areas-list li {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(106,106,106,0.5);
-  padding: 0 14px;
-  border-right: 1px solid rgba(106,106,106,0.15);
-}
-.areas-list li:first-child { padding-left: 0; }
-.areas-list li:last-child { border-right: none; }
-
 /* ---- FOOTER ---- */
 .footer {
   border-top: 1px solid var(--border);
@@ -844,8 +828,8 @@ img { display: block; max-width: 100%; }
   max-width: var(--max-w);
   margin: 0 auto 48px;
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: clamp(28px, 4vw, 56px);
 }
 .footer-logo {
   display: flex;
@@ -882,9 +866,13 @@ img { display: block; max-width: 100%; }
   margin-bottom: 20px;
 }
 .footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links li {
+  font-size: 13px;
+  color: rgba(232,228,220,0.55);
+}
 .footer-links a {
   font-size: 13px;
-  color: var(--muted);
+  color: rgba(232,228,220,0.55);
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--off-white); }
@@ -959,7 +947,8 @@ img { display: block; max-width: 100%; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-grid > *:first-child { grid-column: auto; }
   .authority-right { flex-direction: column; gap: 24px; }
-  .stat-row { text-align: left; }
+  .hero-cta-group { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-secondary { justify-content: center; white-space: normal; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1038,13 +1027,18 @@ img { display: block; max-width: 100%; }
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-body">
-      <div class="hero-kicker" aria-hidden="true">Mike McEvoy, CPA &nbsp; New York</div>
+      <div class="hero-kicker" aria-hidden="true">Mike McEvoy, CPA #147717 &nbsp; New York</div>
       <h1 class="hero-h1">New York Takes<br><mark>Nearly Half.</mark></h1>
       <p class="hero-sub">Mike McEvoy builds the strategy that changes what you owe before you file. Tax strategy and accounting services for businesses, high earners, real estate investors, and those who expect more from their CPA.</p>
-      <a href="/book-consultation" class="btn-primary">
-        Get Your Free Tax Analysis
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      <div class="hero-cta-group">
+        <a href="/book-consultation" class="btn-primary">
+          Get Your Free Tax Analysis
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/services/tax-planning" class="btn-secondary">High Net Worth, $500K+</a>
+        <a href="#calc-heading" class="btn-secondary">Free Tax Savings Calculator</a>
+        <a href="/services/bookkeeping" class="btn-secondary">Monthly Bookkeeping</a>
+      </div>
     </div>
 
     <div class="hero-scroll" aria-hidden="true">
@@ -1056,7 +1050,7 @@ img { display: block; max-width: 100%; }
   <!-- AUTHORITY -->
   <section class="authority" aria-label="About Mike McEvoy CPA">
     <div class="authority-copy">
-      <div class="section-kicker reveal">Mike McEvoy, CPA</div>
+      <div class="section-kicker reveal" style="display:flex;justify-content:center">Mike McEvoy, CPA #147717</div>
       <h2 class="authority-h2 reveal reveal-d1">One CPA. Every<br>client, personally.</h2>
       <div class="authority-body reveal reveal-d2">
         <p>Most accountants file your taxes. Mike builds the strategy that changes what you owe before the filing. <strong>Small business accounting consulting</strong>, tax planning for high earners, and wealth management work for clients who demand direct access to the CPA on their account.</p>
@@ -1163,20 +1157,6 @@ img { display: block; max-width: 100%; }
 
 </main>
 
-<!-- AREAS WE SERVE -->
-<aside class="areas" aria-label="Service areas">
-  <div class="areas-inner">
-    <span class="areas-label">Areas We Serve</span>
-    <ul class="areas-list" role="list">
-      <li>New York City</li>
-      <li>Brooklyn</li>
-      <li>Staten Island</li>
-      <li>Queens</li>
-      <li>The Hamptons</li>
-    </ul>
-  </div>
-</aside>
-
 <!-- FOOTER -->
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
@@ -1201,12 +1181,23 @@ img { display: block; max-width: 100%; }
     <nav aria-label="Company footer navigation">
       <div class="footer-col-title">Company</div>
       <ul class="footer-links">
-        <li><a href="/about">Mike McEvoy, CPA</a></li>
+        <li><a href="/about">Mike McEvoy, CPA #147717</a></li>
         <li><a href="/results">Results</a></li>
         <li><a href="/book-consultation">Book a Consultation</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/privacy-policy">Privacy Policy</a></li>
         <li><a href="/disclaimer">Disclaimer</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Areas we serve">
+      <div class="footer-col-title">Areas We Serve</div>
+      <ul class="footer-links">
+        <li>New York City</li>
+        <li>Brooklyn</li>
+        <li>Staten Island</li>
+        <li>Queens</li>
+        <li>The Hamptons</li>
+        <li>New Jersey</li>
       </ul>
     </nav>
   </div>
