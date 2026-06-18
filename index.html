@@ -989,7 +989,10 @@ img { display: block; max-width: 100%; }
 
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
-    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true">
+      <source data-src="hero-background.webm" type="video/webm">
+      <source data-src="hero-background.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-body">
@@ -1198,10 +1201,10 @@ img { display: block; max-width: 100%; }
     burger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   });
 
-  var HERO_VIDEO_SRC = '';
   var vid = document.getElementById('hero-video');
-  if (HERO_VIDEO_SRC) {
-    vid.src = HERO_VIDEO_SRC;
+  var vidSources = vid.querySelectorAll('source[data-src]');
+  if (vidSources.length) {
+    vidSources.forEach(function (s) { s.src = s.getAttribute('data-src'); });
     vid.load();
     vid.addEventListener('canplay', function () { vid.classList.add('ready'); }, { once: true });
   }
